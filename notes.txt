@@ -1,0 +1,95 @@
+Typescript Notes:
+    - Setting Up Typescript
+        1) NPM: npm install -g typescript ts-node
+        2) To Compile:
+            tsc <name of TS file>
+            ts-node <name of TS file> - compiles and runs js
+
+    - TypeScript:
+        1) Type - Easy way to refer to the different properties and functions that a value has.
+            a) Primitive Types:
+                - Number
+                - Boolean
+                - Void
+                - Undefined
+                - String
+                - Symbol
+                - Null
+            b) Object Types:
+                - functions
+                - arrays
+                - classes
+                - objects
+        2) Why do we care about Types?
+            a) Types are used by the Typescript Compiler to analyze our code for errors.
+            b) Types allow other engineers to understand what values are flowing around our codebase.
+
+        3) Type Annotations: Code we add to tell TypeScript what type of value a variable will refer to.
+            - Any - Means TS has no idea what this is - can't check property values
+            - 3 Reasons to use Annotations
+                1) When a function returns the 'any' type and wew need to clarify the value.
+                2) When we declare a variable on one line then initialize it later.
+                3) When we want a variable to have a type that can't be inferred.
+
+        4) Type Inference: TypeScript tries to figure out what type of value a variable refers to.
+            - Will always use Inference
+
+        5) Type Guard: Clarifies the type that we're working with from string, number, boolean.
+            - typeof - checks to see what primative type the value in question is.
+            - instanceof - narrows down every other type of value
+                - reference to constructor parameters
+
+        5) Typed Arrays - Arrays where each element is some consistent type of value.
+            - TS can do type inference when extracting values from an array.
+            - TS can prevent us from adding incompatible values to the array.
+            - We can get help with 'map', 'forEach', 'reduce' functions.
+            - Flexible - arrays can still contain multiple different types.
+
+        6) TypeScript Tuples: Array like structure where each element represents some property or record.
+
+        7) Interfaces - Creates a new type, describing the property names and value types of an object.
+
+        8) Classes - Blueprint to create an object with some fields (values) and methods(functions) to represent a 'thing'
+            - Modifiers:
+                1) Public - This method can be called any where, anytime
+                2) Private - This method can only be called by other methods in this classes
+                3) Protected - This method can only be called by other methods in this class, or by other methods in child classes.
+            - Where are we going to use them
+                
+DESIGN PATTERNS:
+    1) Uppercase names for files that export a class.
+    2) Question marks are optional arguments to a function.
+
+    3) Type Guards - 
+        "instanceof" - A type guard that is used for non-primatives.  Ex: "if( data instanceof Array)"
+        "typeof" - A type guard that is used for primatives. Ex: "if(typeof data === "string")"
+    
+    4) Abstract Classes:
+        - Can't be used to create an object directly.
+        - Only used as a parent class.
+        - Can contain real implementation for some methods.
+        - The implemented methods can refer to other methods that don't actually exist yet (we still have to provide names and types for the un-implemented methods).
+        - Can make child classes promise to implement some other method.
+
+
+    4) Interface and abstract classses comparisons
+        a) Inheritance/Abstract Classes:
+            1) Sets up a contract between different classes.
+            2) Use when we are trying to build up a definition of an object. (closely related).
+            3) Strongly couples classes together.
+        b) Interfaces:
+            1) Sets up a contract between different classes.
+            2) Use when we have very different objects that we want to work together.
+            3) Promotes loose coupling. 
+
+
+    6) Enum(Enumeration) - An object that stores some closely related values.
+        - Follow near-identical syntax rules as normal objects.
+        - creates an object with the same keys and values when converted from TS to JS.
+        - Primary goal is to signal to other engineers that these are all closely related values.
+        - Use whenever we have a small fixed set of values that are all closely related and know at compile time.
+
+    7) Generics: 
+        - Like function arguments, but for types in class/function definitions.
+        - Allows us to define the type of a property/argument/return value at a future point.
+        - Used heavily when writing reusuable code.
