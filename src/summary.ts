@@ -9,5 +9,10 @@ export interface OutputTarget {
 }
 
 export class Summary {
-  constructor(public analyzer: Analyzer, public outTarget: OutputTarget) {}
+  constructor(public analyzer: Analyzer, public outPutTarget: OutputTarget) {}
+
+  buidANdPrintReport(matches: MatchData[]): void {
+    const output = this.analyzer.run(matches);
+    this.outPutTarget.print(output);
+  }
 }
