@@ -12,6 +12,7 @@ export class Summary {
   constructor(public analyzer: Analyzer, public outPutTarget: OutputTarget) {}
 
   buidANdPrintReport(matches: MatchData[]): void {
+    const { analyzer, outPutTarget } = this;
     const output = this.analyzer.run(matches);
     this.outPutTarget.print(output);
   }
